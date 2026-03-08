@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учет сотрудников</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Кадровый учет</h1>
+        
+        <!-- Панель управления: Фильтры и Кнопка добавления -->
+        <div class="controls">
+            <div class="filters">
+                <input type="text" id="search-input" placeholder="Поиск по ФИО...">
+                
+                <select id="filter-department">
+                    <option value="">Все отделы</option>
+                    <!-- Опции добавятся через JS -->
+                </select>
+                
+                <select id="filter-position">
+                    <option value="">Все должности</option>
+                    <!-- Опции добавятся через JS -->
+                </select>
+            </div>
+            
+            <button id="btn-add-employee" class="btn-primary">+ Добавить сотрудника</button>
+        </div>
+
+        <!-- Таблица сотрудников -->
+        <table id="employees-table">
+            <thead>
+                <tr>
+                    <th>ФИО</th>
+                    <th>Дата рождения</th>
+                    <th>Паспорт</th>
+                    <th>Контакты</th>
+                    <th>Адрес</th>
+                    <th>Отдел</th>
+                    <th>Должность</th>
+                    <th>Зарплата</th>
+                    <th>Дата приема</th>
+                    <th>Статус</th>
+                    <th>Действия</th>
+                </tr>
+            </thead>
+            <tbody id="employees-body">
+                <!-- Строки добавятся через JS -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Модальное окно для создания/редактирования -->
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 id="modal-title">Новый сотрудник</h2>
+            <form id="employee-form">
+                <input type="hidden" id="emp-id">
+                
+                <label>ФИО:</label>
+                <input type="text" id="emp-name" required>
+
+                <label>Дата рождения:</label>
+                <input type="date" id="emp-birth" required>
+
+                <label>Серия/Номер паспорта (____ ______):</label>
+                <input type="text" id="emp-passport" placeholder="1234 567890" required pattern="\d{4} \d{6}">
+
+                <label>Контакты (+7 (___) ___-__-__):</label>
+                <input type="text" id="emp-contact" placeholder="+7 (999) 123-45-67">
+
+                <label>Адрес:</label>
+                <input type="text" id="emp-address">
+
+                <label>Отдел:</label>
+                <select id="emp-department" required></select>
+
+                <label>Должность:</label>
+                <select id="emp-position" required></select>
+
+                <label>Зарплата:</label>
+                <input type="number" id="emp-salary" required>
+
+                <label>Дата приема:</label>
+                <input type="date" id="emp-hire" required>
+
+                <button type="submit" class="btn-primary">Сохранить</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

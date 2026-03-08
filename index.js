@@ -126,7 +126,7 @@ app.get('/api/positions', async (req, res) => {
     res.json(result.rows);
 });
 
-
+app.use(express.static('public'));
 app.listen(PORT, () => {
     console.log(`Сервер запущен: http://localhost:${PORT}`);
 });
